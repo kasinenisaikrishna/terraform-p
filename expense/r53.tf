@@ -1,7 +1,9 @@
-resource "aws_route53_record" "www" {
-  zone_id = aws_route53_zone.primary.zone_id
-  name    = "www.example.com"
+resource "aws_route53_record" "expense" {
+  count = length(var.instances_names)
+  zone_id = var.zone_id
+  #backend.dawsconnect.org
+  name    = "${var.instances_names[count.index]}.${var.domain_name}"
   type    = "A"
   ttl     = 1
-  records = [aws_eip.lb.public_ip]
+  records = [aws_instance.expense[count.index].private_ip]
 }

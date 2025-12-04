@@ -19,3 +19,7 @@ variable "common_tags" {
 # variable "domain_name" {
 #   default = "dawsconnect.org"
 # }
+
+variable "environment" {
+  default = "prod"
+}

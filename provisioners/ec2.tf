@@ -17,6 +17,7 @@ resource "aws_instance" "terraform"{
         password    = "DevOps321"
     }
 
+    # provisioners will execute only at the time of resource creation
     provisioner "remote-exec" {
         inline = [
             "sudo dnf install ansible -y",

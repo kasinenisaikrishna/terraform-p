@@ -8,7 +8,7 @@ terraform {
 
   backend "s3" {
     bucket = "81s-remote-state-kasineni"
-    key    = "remote-state-demo" # every repo should contain unique key
+    key    = "for-each-demo" # every repo should contain unique key
     region = "us-east-1"
     dynamodb_table = "81s-locking"
   }

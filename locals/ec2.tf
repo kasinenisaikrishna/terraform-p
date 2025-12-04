@@ -40,7 +40,7 @@ resource "aws_security_group" "allow_ssh_terraform" {
 # if prod create t3.medium, other create t3.micro
 resource "aws_instance" "elasticsearch"{
     ami = data.aws_ami.ami_info.id
-    instance_type = var.environment == "prod" ? "t3.medium" : "t3.micro"
+    instance_type = local.instance_type
     vpc_security_group_ids = [aws_security_group.allow_ssh_terraform.id]
     tags = {
         Name = "terraform"

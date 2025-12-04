@@ -1,4 +1,4 @@
-resource "aws_instance" "terraform"{
+resource "aws_instance" "expense"{
     for_each = var.instances # this is already map variable 
     # for_each will give us a special variable called each
     ami = "ami-09c813fb71547fc4f" # this AMI ID may change over the time
